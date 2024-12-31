@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 0 0% 100%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply min-h-screen bg-background text-foreground;
+  }
+}
+
+.glass-morphism {
+  @apply bg-white/80 backdrop-blur-lg border border-white/20;
+}
+
+.genre-button {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.genre-button:hover {
+  background-color: #23c483;
+  box-shadow: 0px 10px 10px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.genre-button:active {
+  transform: translateY(-1px);
+}
+
+.genre-button.selected {
+  background-color: #23c483;
+  color: #fff;
+  box-shadow: 0px 10px 10px rgba(46, 229, 157, 0.4);
+}
+
+.genre-button.selected:hover {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #23c483;
+  box-shadow: 0px 10px 10px rgba(46, 229, 157, 0.4);
+}
+
+.podcast-card {
+  @apply relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg;
+}
+
+.podcast-card:hover img {
+  @apply scale-105;
+}
+
+.audio-player {
+  @apply fixed bottom-6 left-1/2 -translate-x-1/2 py-3 px-4 rounded-xl z-50 w-[500px] max-w-[95vw] shadow-xl;
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    inset 0 2px 4px 0 rgba(255, 255, 255, 0.1);
+}
+
+.audio-progress {
+  @apply relative h-1 w-full bg-gray-200 rounded-full overflow-hidden cursor-pointer;
+}
+
+.audio-progress-bar {
+  @apply absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-100;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.play-button {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: linear-gradient(30deg, #23c483 20%, #1fa873 80%);
+  transition: all 0.3s ease-in-out 0s;
+  box-shadow: rgba(35, 196, 131, 0.4) 0px 4px 8px;
+  align-items: center;
+  border: 0;
+}
+
+.play-button:is(:hover, :focus) {
+  transform: scale(1.2);
+}
